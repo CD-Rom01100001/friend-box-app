@@ -23,4 +23,18 @@ body {
   flex: 1;
   gap: 0 20px;
   overflow: hidden;
+
+  :global(.simplebar-scrollbar) {
+    pointer-events: all; /* чтобы ::before мог реагировать на hover */
+  }
+
+  :global(.simplebar-scrollbar::before) {
+    background: var(--scroll);
+  }
+
+  :global(.simplebar-scrollbar:hover::before) {
+    background-color: var(--accent);
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
 }

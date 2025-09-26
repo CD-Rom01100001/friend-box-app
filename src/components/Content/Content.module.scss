@@ -1,8 +1,8 @@
 .content {
-  flex: 1; /* занимает всё оставшееся место */
+  flex: 1;
   padding: 1rem 0;
-  height: 100%; /* занимает всю высоту mainWrapper */
-  overflow-y: auto; /* вертикальный скролл */
+  height: 100%;
+  // overflow-y: auto;
 }
 
 h2 {

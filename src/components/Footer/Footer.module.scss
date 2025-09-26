@@ -15,13 +15,13 @@
 
 .copyrightBlock {
   text-align: center;
-}
 
-.copyrightBlock p {
-  margin: 0;
-  color: #8f9aa7;
-}
+  p {
+    margin: 0;
+    color: #8f9aa7;
 
-.copyrightBlock span {
-  color: #04c2c9;
+    span {
+      color: var(--accent);
+    }
+  }
 }

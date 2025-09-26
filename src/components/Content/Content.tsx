@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import css from './Content.module.scss'
 import { Outlet } from 'react-router-dom';
+import css from './Content.module.scss'
 
 const Content: FC = () => {
 
