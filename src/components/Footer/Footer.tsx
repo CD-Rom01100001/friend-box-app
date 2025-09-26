@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import css from './Footer.module.css'
+import css from './Footer.module.scss'
 
 const Footer: FC = () => {
 
   return (
-    <div className={css.footer}>
-      
-    </div>
+    <footer className={css.footer}>
+      <h2>Footer</h2>
+    </footer>
   );
 }
 

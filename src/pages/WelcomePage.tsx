@@ -4,7 +4,7 @@ const WelcomePage: FC = () => {
 
   return (
     <div className='welcomePage'>
-      
+      <h2>Welcome</h2>
     </div>
   );
 }

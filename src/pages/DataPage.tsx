@@ -4,7 +4,7 @@ const DataPage: FC = () => {
 
   return (
     <div className='dataPage'>
-      
+      <h2>Data</h2>
     </div>
   );
 }

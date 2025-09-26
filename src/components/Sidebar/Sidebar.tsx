@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import css from './Sidebar.module.css'
+import css from './Sidebar.module.scss'
 
 const Sidebar: FC = () => {
 
   return (
-    <div className={css.sidebar}>
-      
-    </div>
+    <aside className={css.sidebar}>
+      <h2>Sidebar</h2>
+    </aside>
   );
 }
 
