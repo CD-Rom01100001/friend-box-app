@@ -5,7 +5,13 @@ const Sidebar: FC = () => {
 
   return (
     <aside className={css.sidebar}>
-      <h2>Sidebar</h2>
+      <div className={css.blockWrapper}>
+        {Array.from({ length: 10 }).map((_, i) => {
+          return (
+            <div key={i} className={css.block}>Контент</div>
+          )
+        })}
+      </div>
     </aside>
   );
 }

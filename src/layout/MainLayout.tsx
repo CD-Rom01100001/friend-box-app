@@ -10,8 +10,10 @@ const MainLayout: FC = () => {
   return (
     <div className={css.mainLayout}>
       <Header/>
-      <Sidebar/>
-      <Content/>
+      <div className={css.mainWrapper}>
+        <Sidebar/>
+        <Content/>
+      </div>
       <Footer/>
     </div>
   );

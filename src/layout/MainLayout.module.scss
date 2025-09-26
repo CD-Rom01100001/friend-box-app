@@ -1,0 +1,26 @@
+@import "../styles/variables.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.mainLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  overflow: hidden;
+}
+
+.mainWrapper {
+  display: flex;
+  flex: 1;
+  gap: 0 20px;
+  overflow: hidden;
+}

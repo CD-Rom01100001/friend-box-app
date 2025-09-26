@@ -1,0 +1,10 @@
+.content {
+  flex: 1; /* занимает всё оставшееся место */
+  padding: 1rem 0;
+  height: 100%; /* занимает всю высоту mainWrapper */
+  overflow-y: auto; /* вертикальный скролл */
+}
+
+h2 {
+  text-align: center;
+}

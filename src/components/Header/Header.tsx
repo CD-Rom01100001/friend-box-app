@@ -7,8 +7,8 @@ const Header: FC = () => {
 
   return (
     <header className={css.header}>
-      <h2>Header</h2>
-      <nav>
+      <Link to={paths.home} className={css.logo}>Friend-Box</Link>
+      <nav className={css.nav}>
         <Link to={paths.home}>Home</Link>
         <Link to={paths.data}>Friends</Link>
       </nav>

@@ -1,0 +1,19 @@
+.welcomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--bg-sidebar);
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 500px;
+  background-color: #3a3a3a;
+  color: var(--text-main);
+  border-radius: 8px;
+}

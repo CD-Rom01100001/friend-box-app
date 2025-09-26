@@ -1,0 +1,27 @@
+.footer {
+  background-color: var(--bg-footer);
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
+}
+
+.contactsMethodsBlock {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.copyrightBlock {
+  text-align: center;
+}
+
+.copyrightBlock p {
+  margin: 0;
+  color: #8f9aa7;
+}
+
+.copyrightBlock span {
+  color: #04c2c9;
+}
