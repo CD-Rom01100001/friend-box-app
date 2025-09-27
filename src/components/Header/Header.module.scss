@@ -2,14 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 80px;
   padding: 0 2rem;
   background-color: var(--bg-main);
   border-bottom: 1px solid #333;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: var(--accent);
   text-decoration: none;
@@ -17,8 +17,30 @@
 
 .nav {
   a {
+    position: relative;
     margin-left: 1rem;
     color: var(--text-main);
     text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 0;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  a:hover:not(.active)::before {
+    width: 100%;
+  }
+
+  a.active {
+    color: var(--accent);
+    cursor: default;
   }
 }

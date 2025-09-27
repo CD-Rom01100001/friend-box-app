@@ -1,16 +1,20 @@
 import { FC } from 'react';
 import css from './Header.module.scss'
 import { paths } from '../../routes/paths';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+
+const active = ({isActive}: {isActive: boolean}) => isActive ? `${css.active}` : ''
 
 const Header: FC = () => {
 
   return (
     <header className={css.header}>
-      <Link to={paths.home} className={css.logo}>Friend-Box</Link>
+      <Link to={paths.home} className={css.logo}>
+        <h1>Friend-Box</h1>
+      </Link>
       <nav className={css.nav}>
-        <Link to={paths.home}>Home</Link>
-        <Link to={paths.data}>Friends</Link>
+        <NavLink to={paths.home} className={active}>Home</NavLink>
+        <NavLink to={paths.data} className={active}>Friends</NavLink>
       </nav>
     </header>
   );

@@ -6,7 +6,6 @@ const Content: FC = () => {
 
   return (
     <main className={css.content}>
-      <h2>Content</h2>
       <Outlet/>
     </main>
   );

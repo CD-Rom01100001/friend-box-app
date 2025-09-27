@@ -1,10 +1,11 @@
 import { FC } from 'react';
+import css from './DataPage.module.scss'
 
 const DataPage: FC = () => {
 
   return (
-    <div className='dataPage'>
-      <h2>Data</h2>
+    <div className={css.dataPage}>
+      <button className={css.btnAddFriend}>Add a Friend</button>
     </div>
   );
 }

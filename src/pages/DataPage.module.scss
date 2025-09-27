@@ -1,0 +1,17 @@
+.btnAddFriend {
+  width: 100%;
+  height: 50px;
+  background: #2a2a2a4d;
+  font-size: 20px;
+  font-weight: 800;
+  color: #8b8a8a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btnAddFriend:hover {
+  background: #8686864d;
+  color: var(--accent);
+}
