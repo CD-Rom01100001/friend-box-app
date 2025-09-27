@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import css from './FriendCard.module.scss'
+import ConfirmDeleteModal from '../ConfirmDeleteModal/ConfirmDeleteModal';
 
 interface FriendI {  
   id: string;
@@ -16,8 +17,9 @@ interface FriendCardProps {
 
 const FriendCard: FC<FriendCardProps> = ({data}) => {
 
-  const [isEditing, setIsEditing] = useState(false)// состояние кнопки "Редактировать"
-  const [form, setForm] = useState(data)// состояние входных данных Друга
+  const [isEditing, setIsEditing] = useState<boolean>(false)// состояние кнопки "Редактировать"
+  const [showDeleteModal, setShowDeletModal] = useState<boolean>(false)// состояние модального окна "Удалить"
+  const [form, setForm] = useState<FriendI>(data)// состояние входных данных Друга
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({...form, [e.target.name]: e.target.value})
@@ -66,11 +68,17 @@ const FriendCard: FC<FriendCardProps> = ({data}) => {
             <p>{form.phone}</p>
             <div className={css.buttons}>
               <button onClick={() => setIsEditing(true)}>Редактировать</button>
-              <button>Удалить</button>
+              <button onClick={() => setShowDeletModal(true)}>Удалить</button>
             </div>
           </>
         )}
       </div>
+
+      {showDeleteModal &&
+        <ConfirmDeleteModal 
+          onConfirm={() =>setShowDeletModal(false)} 
+          onCancel={() => setShowDeletModal(false)}/>
+      }
       
     </div>
   );

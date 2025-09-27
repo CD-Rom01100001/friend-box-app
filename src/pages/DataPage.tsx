@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import css from './DataPage.module.scss'
 import AddFriendModal from '../components/AddFriendModal/AddFriendModal';
-import { useTimer } from '../hooks/useTimer';
 import FriendCard from '../components/FriendCard/FriendCard';
 
 const DataPage: FC = () => {
