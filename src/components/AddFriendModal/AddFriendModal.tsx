@@ -3,10 +3,11 @@ import css from './AddFriendModal.module.scss'
 
 interface AddFriendModalProps {
   onClose: () => void;
+  onAdd: (friend: FormType) => void;
 }
 
-type formType = {
-  photo: string;
+export type FormType = {
+  // photo: string;
   name: string;
   birthYear: string;
   workplace: string;
@@ -14,24 +15,28 @@ type formType = {
 }
 
 const formFriend = {
-  photo: '',
+  // photo: '',
   name: '',
   birthYear: '',
   workplace: '',
   phone: ''
 }
 
-const AddFriendModal: FC<AddFriendModalProps> = ({onClose}) => {
+const AddFriendModal: FC<AddFriendModalProps> = ({onClose, onAdd}) => {
   
-  const [form, setForm] = useState<formType>(formFriend) 
+  const [form, setForm] = useState<FormType>(formFriend) 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({...form, [e.target.name]: e.target.value})
   }
 
-  const handleAdd = () => {
-    console.log('add friend')
-    onClose()
+  const handleAdd = async () => {
+    try {
+      await onAdd(form)// RTK Query mutation
+      onClose()
+    } catch (error) {
+      console.error('Ошибка при добавлении:', error)
+    }
   }
 
   const handleExit = () => {
@@ -43,7 +48,7 @@ const AddFriendModal: FC<AddFriendModalProps> = ({onClose}) => {
     <div className={css.overlay} onClick={onClose}>
       <div className={css.modal} onClick={e => e.stopPropagation()}>
         <h3>Добавьте друга</h3>
-        <input type="file" name='photo'/>
+        {/* <input type="file" name='photo'/> */}
         <input type="text" name='name' placeholder='ФИО' onChange={handleChange}/>
         <input type="number" name='birthYear' placeholder='Год рождения' onChange={handleChange}/>
         <input type="text" name='workplace' placeholder='Место работы/учёбы' onChange={handleChange}/>

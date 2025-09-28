@@ -1,12 +1,16 @@
 import { FC, useState } from 'react';
 import css from './DataPage.module.scss'
-import AddFriendModal from '../components/AddFriendModal/AddFriendModal';
-import { useTimer } from '../hooks/useTimer';
+import AddFriendModal, { type FormType } from '../components/AddFriendModal/AddFriendModal';
+import { useAddFriendMutation } from '../features/friendsApi';
 
 const DataPage: FC = () => {
 
   const [showModal, setShowModal] = useState<boolean>(false)
-  console.log(useTimer(10))
+  const [addFriend] = useAddFriendMutation()
+
+  const handleAddFriend = async (friend: FormType) => {
+    await addFriend(friend).unwrap() // показывает ошибку при неудаче
+  }
 
   return (
     <div className={css.dataPage}>
@@ -15,7 +19,10 @@ const DataPage: FC = () => {
       </button>
 
       {showModal &&
-        <AddFriendModal onClose={()=>setShowModal(false)}/>
+        <AddFriendModal 
+          onClose={()=>setShowModal(false)}
+          onAdd={handleAddFriend} 
+        />
       }
     </div>
   );
