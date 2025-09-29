@@ -10,7 +10,8 @@ import {
   addDoc,
   getDocs,
   deleteDoc,
-  doc
+  doc,
+  updateDoc
 } from 'firebase/firestore';
 
 export const friendsApi = createApi({
@@ -61,6 +62,19 @@ export const friendsApi = createApi({
       invalidatesTags: ['Friend'],
     }),
 
+    /* Partial<FormType> → все поля становятся необязательными, для частичных обновлений. */
+     updateFriend: builder.mutation<void, { id: string; data: Partial<FormType> }>({
+      async queryFn({ id, data }) {
+        try {
+          await updateDoc(doc(db, 'friends', id), data);
+          return { data: undefined };
+        } catch (error) {
+          return { error };
+        }
+      },
+      invalidatesTags: ['Friend'],
+    }),
+
   })
 })
 
@@ -68,4 +82,5 @@ export const {
   useAddFriendMutation,
   useGetFriendsQuery,
   useDeleteFriendMutation,
+  useUpdateFriendMutation
 } = friendsApi

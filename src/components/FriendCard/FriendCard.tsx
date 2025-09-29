@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import css from './FriendCard.module.scss'
 import ConfirmDeleteModal from '../ConfirmDeleteModal/ConfirmDeleteModal';
-import { useDeleteFriendMutation } from '../../features/friendsApi';
+import { useDeleteFriendMutation, useUpdateFriendMutation } from '../../features/friendsApi';
 
 interface FriendI {  
   id: string;
@@ -22,12 +22,14 @@ const FriendCard: FC<FriendCardProps> = ({data}) => {
   const [showDeleteModal, setShowDeletModal] = useState<boolean>(false)// состояние модального окна "Удалить"
   const [form, setForm] = useState<FriendI>(data)// состояние входных данных Друга
   const [deleteFriend] = useDeleteFriendMutation()
+  const [updateFriend] = useUpdateFriendMutation()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({...form, [e.target.name]: e.target.value})
   }
 
   const handleAccept = () => {
+    updateFriend({id: data.id, data: form})
     setIsEditing(false)
   };
 
