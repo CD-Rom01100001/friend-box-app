@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { initializeFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCkv9cIioQv8kJgbZlVS5kCYCXii_zY7RE",
-  authDomain: "friend-box-161f5.firebaseapp.com",
-  projectId: "friend-box-161f5",
-  storageBucket: "friend-box-161f5.firebasestorage.app",
-  messagingSenderId: "436390638697",
-  appId: "1:436390638697:web:931f499d06af92601adef8"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_GUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGIN_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
