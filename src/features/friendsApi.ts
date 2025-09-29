@@ -9,6 +9,8 @@ import {
   collection,
   addDoc,
   getDocs,
+  deleteDoc,
+  doc
 } from 'firebase/firestore';
 
 export const friendsApi = createApi({
@@ -45,7 +47,19 @@ export const friendsApi = createApi({
         }
       },
       providesTags: ['Friend']
-    })
+    }),
+
+    deleteFriend: builder.mutation<FormType, string>({
+      async queryFn(id) {
+        try {
+          await deleteDoc(doc(db, 'friends', id));
+          return { data: undefined };
+        } catch (error) {
+          return { error };
+        }
+      },
+      invalidatesTags: ['Friend'],
+    }),
 
   })
 })
@@ -53,4 +67,5 @@ export const friendsApi = createApi({
 export const {
   useAddFriendMutation,
   useGetFriendsQuery,
+  useDeleteFriendMutation,
 } = friendsApi
