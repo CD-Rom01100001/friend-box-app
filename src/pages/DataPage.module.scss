@@ -1,3 +1,11 @@
+.dataPage {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem 0;
+  }
+}
+
 .btnAddFriend {
   width: 100%;
   height: 50px;

@@ -4,7 +4,7 @@ import ConfirmDeleteModal from '../ConfirmDeleteModal/ConfirmDeleteModal';
 
 interface FriendI {  
   id: string;
-  photo: string;
+  // photo: string;
   name: string;
   birthYear: string;
   workplace: string;
@@ -38,14 +38,14 @@ const FriendCard: FC<FriendCardProps> = ({data}) => {
     <div className={css.friendCard}>
 
       {/* блок с фото */}
-      <div className={css.photoBlock}>
+      {/* <div className={css.photoBlock}>
         <img src={form.photo} alt="avatar" className={css.avatar} />
         {isEditing && (
           <div className={css.overlay} onClick={() => alert('Заменить фото')}>
             <span>+</span>
           </div>
         )}
-      </div>
+      </div> */}
 
       {/* основной блок */}
       <div className={css.infoBlock}>

@@ -1,13 +1,14 @@
 import { FC, useState } from 'react';
 import AddFriendModal, { FormType } from '../components/AddFriendModal/AddFriendModal';
 import FriendCard from '../components/FriendCard/FriendCard';
-import { useAddFriendMutation } from '../features/friendsApi';
+import { useAddFriendMutation, useGetFriendsQuery } from '../features/friendsApi';
 import css from './DataPage.module.scss'
 
 const DataPage: FC = () => {
 
   const [showModal, setShowModal] = useState<boolean>(false)
   const [addFriend] = useAddFriendMutation()
+  const { data: friends = [], isLoading } = useGetFriendsQuery();
 
   const handleAddFriend = async (friend: FormType) => {
     await addFriend(friend)
@@ -19,14 +20,16 @@ const DataPage: FC = () => {
         Add a Friend
       </button>
 
-      <FriendCard data={{  
-        id: '1',
-        photo: 'C:\\Users\\mrala\\Downloads\\avatarRom.jpeg',
-        name: 'Roman',
-        birthYear: '01.01.2025',
-        workplace: 'frontend',
-        phone: '88888888888',
-      }}/>
+      {isLoading 
+        ? 
+        <p>Загрузка...</p>
+        : 
+        <div className={css.cards}>
+          {friends.map((friend) => (
+            <FriendCard key={friend.id} data={friend} />
+          ))}
+        </div>
+      }
 
       {showModal &&
         <AddFriendModal 
