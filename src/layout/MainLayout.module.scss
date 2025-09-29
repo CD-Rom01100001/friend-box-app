@@ -14,7 +14,9 @@ body {
 .mainLayout {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   height: 100vh;
+  width: 100%;
   background-color: var(--bg-main);
   color: var(--text-main);
   overflow: hidden;
@@ -23,6 +25,11 @@ body {
 .mainWrapper {
   display: flex;
   flex: 1;
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 1rem;
+  margin: 0 auto;
+  background-color: var(--bg-main);
   overflow: hidden;
 
   :global(.simplebar-scrollbar) {
@@ -37,5 +44,51 @@ body {
     background-color: var(--accent);
     transition: background-color 0.3s;
     cursor: pointer;
+  }
+}
+
+.sidebarWrapper {
+  transition: transform 0.3s ease;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+    transform: translateX(-100%);
+  }
+
+  &.show {
+    @media (max-width: 768px) {
+      transform: translateX(0);
+    }
+  }
+
+  .toggleBtn {
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    background: rgba(110, 110, 110, 0.8);
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: pulse 1.5s infinite alternate;
+
+    @media (min-width: 769px) {
+      display: none;
+    }
+  }
+
+  @keyframes pulse {
+    from {
+      transform: translateY(-50%) translateX(0);
+    }
+    to {
+      transform: translateY(-50%) translateX(5px);
+    }
   }
 }

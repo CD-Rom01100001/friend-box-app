@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import 'simplebar-react/dist/simplebar.min.css';
 import SimpleBar from 'simplebar-react';
 import Header from '../components/Header/Header';
@@ -8,14 +8,26 @@ import Footer from '../components/Footer/Footer';
 import css from './MainLayout.module.scss'
 
 const MainLayout: FC = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <div className={css.mainLayout}>
       <Header/>
       <div className={css.mainWrapper}>
-        <SimpleBar style={{ maxHeight: '100vh'}}>
-          <Sidebar/>
-        </SimpleBar>
+
+        <div className={`${css.sidebarWrapper} ${isSidebarOpen ? css.show : ''}`}>
+          <SimpleBar style={{ maxHeight: '100vh'}}>
+            <Sidebar/>
+          </SimpleBar>
+
+          <button 
+            className={`${css.toggleBtn} ${isSidebarOpen ? css.open : ''}`}
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          >
+            {isSidebarOpen ? '<<' : '>>'}
+          </button>
+        </div>
+
         <SimpleBar style={{ maxHeight: '100vh', width: '100%'}}>
           <Content/>
         </SimpleBar>

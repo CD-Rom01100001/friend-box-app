@@ -24,3 +24,10 @@
   background: #8686864d;
   color: var(--accent);
 }
+
+@media (max-width: 768px) {
+  .btnAddFriend {
+    background: #8686864d;
+    color: var(--accent);
+  }
+}
