@@ -9,6 +9,8 @@ interface ConfirmDeleteModalProps {
 
 const ConfirmDeleteModal: FC<ConfirmDeleteModalProps> = ({onConfirm, onCancel}) => {
 
+  const timeAgo = useTimer(10, onCancel)
+
   return (
     <div className={css.overlay}>
       <div className={css.confirmDeleteModal} onClick={e => e.stopPropagation()}>
@@ -17,7 +19,7 @@ const ConfirmDeleteModal: FC<ConfirmDeleteModalProps> = ({onConfirm, onCancel}) 
           <button onClick={onConfirm}>Да</button>
           <button onClick={onCancel}>Нет</button>
         </div>
-        <p>Окно закроется через {useTimer(10, onCancel)} сек.</p>
+        <p>Окно закроется через {timeAgo} сек.</p>
       </div>
     </div>
   );

@@ -5,20 +5,20 @@ export const useTimer = (second: number, onFinish: ()=>void) => {
   const [timeAgo, setTimeAgo] = useState<number>(second)
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    if (timeAgo === 0) onFinish()
+  }, [timeAgo, onFinish])
 
+  useEffect(() => {
+    const timer = setInterval(() => {
       setTimeAgo((prevTime) => {
-        if (prevTime <= 1) {
-          clearInterval(timer)
-          onFinish()
-          return 0
+        if (prevTime > 0) {
+          return prevTime - 1
         }
-        return prevTime - 1
+        return 0
       })
     }, 1000)
-
     return () => clearInterval(timer)// на случай если компонент размонтируется
-  }, [onFinish])
+  }, [])
 
   return timeAgo
 }
