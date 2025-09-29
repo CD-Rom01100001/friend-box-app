@@ -14,6 +14,9 @@ export type FormType = {
   phone: string;
 }
 
+/* дополнительный тип для данных хронящихся на FireBase поскольку там генерируется id */
+export type FormTypeFB = FormType & {id: string}
+
 const formFriend = {
   // photo: '',
   name: '',

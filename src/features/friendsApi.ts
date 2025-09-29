@@ -4,10 +4,11 @@
 */
 import {createApi, fakeBaseQuery} from '@reduxjs/toolkit/query/react';
 import {db} from '../firebase/firebase';
-import { type FormType } from '../components/AddFriendModal/AddFriendModal';
+import { FormTypeFB, FormType } from '../components/AddFriendModal/AddFriendModal';
 import {
   collection,
   addDoc,
+  getDocs,
 } from 'firebase/firestore';
 
 export const friendsApi = createApi({
@@ -29,11 +30,27 @@ export const friendsApi = createApi({
       },
       /* когда мы изменяем друзей (например, добавляем или удаляем в другой mutation), мы можем вызвать invalidatesTags: ['Friend'], тогда RTK Query автоматически обновит кэш и перезапросит список друзей. */
       invalidatesTags: ['Friend']
+    }),
+
+    getFriends: builder.query<FormTypeFB[], void>({
+      async queryFn() {
+        try {
+          const snapshot  = await getDocs(collection(db, 'friends'))
+          const data: FormTypeFB[] = snapshot.docs.map((doc) => {
+            return {id: doc.id, ...(doc.data() as FormType)}
+          })
+          return {data}
+        } catch (error) {
+          return {error}
+        }
+      },
+      providesTags: ['Friend']
     })
 
   })
 })
 
 export const {
-  useAddFriendMutation
+  useAddFriendMutation,
+  useGetFriendsQuery,
 } = friendsApi
