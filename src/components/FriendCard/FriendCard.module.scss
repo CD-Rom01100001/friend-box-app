@@ -1,7 +1,4 @@
 .friendCard {
-  // display: grid;
-  // grid-template-columns: 1fr 2fr;
-  // gap: 1rem;
   padding: 1rem;
   width: 80%;
   max-width: 500px;
@@ -11,34 +8,6 @@
   border-radius: 12px;
   overflow: hidden;
 }
-
-// .photoBlock {
-//   position: relative;
-//   width: 100%;
-//   height: 100%;
-
-//   .avatar {
-//     width: 100%;
-//     height: 100%;
-//     object-fit: cover;
-//     border-radius: 8px;
-//   }
-
-//   .overlay {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     background: rgba(100, 100, 100, 0.5);
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     font-size: 2rem;
-//     color: #fff;
-//     cursor: pointer;
-//   }
-// }
 
 .infoBlock {
   display: grid;
@@ -59,11 +28,14 @@
   & p {
     margin: 0;
     border-bottom: 1px solid #555555;
+    white-space: normal; // разрешает перенос строк
+    word-wrap: break-word; // старый синтаксис, поддержка везде
+    overflow-wrap: anywhere; // переносит даже длинные слова
   }
 
   .buttons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); // адаптивные кнопки
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); // адаптивные кнопки
     gap: 1rem;
     margin-top: 0.5rem;
 

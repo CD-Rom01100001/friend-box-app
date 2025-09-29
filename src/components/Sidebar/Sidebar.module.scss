@@ -16,8 +16,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  min-height: 200px;
   background-color: #3a3a3a;
   color: var(--text-main);
   border-radius: 8px;
+
+  p {
+    white-space: normal; // разрешает перенос строк
+    word-wrap: break-word; // старый синтаксис, поддержка везде
+    overflow-wrap: anywhere; // переносит даже длинные слова
+  }
 }

@@ -5,25 +5,6 @@ import { Link, NavLink } from 'react-router-dom';
 
 const active = ({isActive}: {isActive: boolean}) => isActive ? `${css.active}` : ''
 
-// const Header: FC = () => {
-
-//   return (
-//     <div className={css.headerWrapper}>
-//       <header className={css.header}>
-//         <Link to={paths.home} className={css.logo}>
-//           <h1>Friend-Box</h1>
-//         </Link>
-//         <nav className={css.nav}>
-//           <NavLink to={paths.home} className={active}>Главная</NavLink>
-//           <NavLink to={paths.data} className={active}>Друзья</NavLink>
-//         </nav>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default Header;
-
 const Header: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

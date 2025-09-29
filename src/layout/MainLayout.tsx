@@ -16,7 +16,7 @@ const MainLayout: FC = () => {
       <div className={css.mainWrapper}>
 
         <div className={`${css.sidebarWrapper} ${isSidebarOpen ? css.show : ''}`}>
-          <SimpleBar style={{ maxHeight: '100vh'}}>
+          <SimpleBar style={{ height: '100%' }}>
             <Sidebar/>
           </SimpleBar>
 
@@ -28,7 +28,7 @@ const MainLayout: FC = () => {
           </button>
         </div>
 
-        <SimpleBar style={{ maxHeight: '100vh', width: '100%'}}>
+        <SimpleBar style={{ height: '100%', width: '100%'}}>
           <Content/>
         </SimpleBar>
       </div>

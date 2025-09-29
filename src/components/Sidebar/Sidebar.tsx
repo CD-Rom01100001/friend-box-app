@@ -8,7 +8,10 @@ const Sidebar: FC = () => {
       <div className={css.blockWrapper}>
         {Array.from({ length: 10 }).map((_, i) => {
           return (
-            <div key={i} className={css.block}>Контент</div>
+            
+            <div key={i} className={css.block}>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem, exercitationem! Quos nostrum nulla unde necessitatibus ex dignissimos id quidem rem temporibus esse enim, sapiente rerum. Dolorum cumque assumenda quae porro.</p>
+            </div>
           )
         })}
       </div>
