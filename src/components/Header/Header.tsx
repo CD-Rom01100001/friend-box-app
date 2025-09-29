@@ -32,14 +32,10 @@ const Header: FC = () => {
         </Link>
 
         {/* бургер */}
-        <button
+        <div
           className={`${css.burger} ${isMenuOpen ? css.open : ''}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        ></div>
 
         {/* навигация */}
         <nav className={`${css.nav} ${isMenuOpen ? css.show : ''}`}>
