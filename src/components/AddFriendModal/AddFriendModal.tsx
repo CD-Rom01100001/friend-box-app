@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { createPortal } from 'react-dom';
 import css from './AddFriendModal.module.scss'
 
 interface AddFriendModalProps {
@@ -52,7 +53,7 @@ const AddFriendModal: FC<AddFriendModalProps> = ({onClose, onAdd}) => {
     onClose()
   }
 
-  return (
+  return createPortal(
     <div className={css.overlay} onClick={onClose}>
       <div className={css.modal} onClick={e => e.stopPropagation()}>
         <h3>Добавьте друга</h3>
@@ -67,7 +68,8 @@ const AddFriendModal: FC<AddFriendModalProps> = ({onClose, onAdd}) => {
           <button onClick={handleExit}>Выход</button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
