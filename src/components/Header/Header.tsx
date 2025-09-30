@@ -28,7 +28,7 @@ const Header: FC = () => {
     <div className={css.headerWrapper}>
       <header className={css.header}>
         <Link to={paths.home} className={css.logo}>
-          <h1>Friend-Box</h1>
+          <h1>FriendBox</h1>
         </Link>
 
         {/* бургер */}

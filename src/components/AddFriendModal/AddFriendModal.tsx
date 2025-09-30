@@ -35,8 +35,13 @@ const AddFriendModal: FC<AddFriendModalProps> = ({onClose, onAdd}) => {
 
   const handleAdd = async () => {
     try {
-      await onAdd(form)// RTK Query mutation
-      onClose()
+      if (Object.values(form).every(value => value === '')){
+        alert('Пожалуйста, заполните хотя бы одно поле.')
+        return
+      } else {
+        await onAdd(form)// RTK Query mutation
+        onClose()
+      }
     } catch (error) {
       console.error('Ошибка при добавлении:', error)
     }
